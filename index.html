@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>退勤・残業ルール 医療事務向け</title>
+  <style>
+    :root {
+      --main-color: #5F9EA0;
+      --background-color: #FFFFFF;
+      --text-color: #2C3E50;
+    }
+    body {
+      background: #F5F7FA;
+      color: var(--text-color);
+      font-family: 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      line-height: 1.7;
+    }
+    .slide {
+      background: var(--background-color);
+      border-left: 6px solid var(--main-color);
+      margin: 40px auto;
+      padding: 45px 50px;
+      box-sizing: border-box;
+      max-width: 900px;
+      min-height: 600px;
+      box-shadow: 0 4px 20px rgba(95,158,160,0.12);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 2.8em;
+      color: var(--text-color);
+      border-bottom: 3px solid var(--main-color);
+      font-weight: 700;
+      margin: 0 0 1.2em 0;
+      letter-spacing: 0.02em;
+    }
+    h2 {
+      font-size: 2.0em;
+      color: var(--main-color);
+      margin: 0 0 1.0em 0;
+      font-weight: 600;
+    }
+    .important-box {
+      background: var(--main-color);
+      color: white !important;
+      padding: 25px 30px;
+      margin: 25px 0;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.15em;
+      line-height: 1.6;
+    }
+    .note-box {
+      background: #F8F9FA;
+      border: 2px solid var(--main-color);
+      color: var(--text-color);
+      padding: 25px 30px;
+      margin: 25px 0;
+      border-radius: 8px;
+      font-size: 1.1em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 25px 0;
+      font-size: 1.05em;
+      box-shadow: 0 2px 8px rgba(95,158,160,0.1);
+    }
+    th {
+      background: var(--main-color);
+      color: white;
+      padding: 18px 15px;
+      border: 1px solid var(--main-color);
+      text-align: left;
+      font-weight: 600;
+      font-size: 1.0em;
+    }
+    td {
+      border: 1px solid var(--main-color);
+      padding: 18px 15px;
+      background: var(--background-color);
+      vertical-align: top;
+    }
+    ul, ol { 
+      margin: 1.2em 0; 
+      padding-left: 1.8em; 
+      font-size: 1.1em;
+    }
+    li { 
+      margin-bottom: 0.8em; 
+      line-height: 1.6;
+    }
+    .highlight { 
+      background: var(--main-color); 
+      color: white; 
+      padding: 4px 8px; 
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .spacer { flex-grow: 1; }
+    
+    /* PC最適化 */
+    @media (min-width: 1200px) {
+      .slide {
+        max-width: 1000px;
+        padding: 50px 60px;
+      }
+      h1 { font-size: 3.2em; }
+      h2 { font-size: 2.2em; }
+      table { font-size: 1.1em; }
+      ul, ol { font-size: 1.15em; }
+    }
+    
+    @media (max-width: 768px) {
+      body { padding: 20px 10px; }
+      .slide { 
+        padding: 25px 20px; 
+        min-height: 400px;
+        margin: 20px auto;
+      }
+      h1 { font-size: 1.8em; }
+      h2 { font-size: 1.4em; }
+      table, th, td { font-size: 0.9em; }
+      ul, ol { font-size: 1.0em; }
+    }
+    
+    /* パスワード保護 */
+    .password-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(245,247,250,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .password-box {
+      background: var(--background-color);
+      border: 3px solid var(--main-color);
+      border-radius: 12px;
+      padding: 40px 30px;
+      text-align: center;
+      max-width: 450px;
+      width: 90vw;
+      box-shadow: 0 8px 32px rgba(95,158,160,0.15);
+    }
+    .password-box h2 {
+      color: var(--main-color);
+      margin: 0 0 25px 0;
+      font-size: 1.8em;
+    }
+    .password-box input[type="password"] {
+      font-size: 1.1em;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      border: 2px solid var(--main-color);
+      border-radius: 6px;
+      outline: none;
+      width: 100%;
+      max-width: 350px;
+      box-sizing: border-box;
+    }
+    .password-box button {
+      background: var(--main-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1em;
+      padding: 12px 25px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .password-box button:hover {
+      background: #4a7c7f;
+    }
+    small { color: #666; font-size: 0.9em; }
+    
+    /* 追加のPC向け改善 */
+    .slide:nth-child(odd) {
+      border-left-color: var(--main-color);
+    }
+    .slide:nth-child(even) {
+      border-left-color: #4a7c7f;
+    }
+    
+    /* テーブル行の交互色 */
+    tbody tr:nth-child(even) {
+      background: #FAFBFC;
+    }
+  </style>
+</head>
+<body>
+<!-- パスワード保護 -->
+<div class="password-overlay" id="pwlayer">
+  <div class="password-box">
+    <h2>パスワード入力</h2>
+    <input
+      type="password"
+      id="password"
+      placeholder="Macのログインパスワードを入力してください"
+      autocomplete="off"
+      autofocus
+    >
+    <br>
+    <button onclick="checkPassword()">表示</button>
+    <br><small>この資料は院内限定です。</small>
+  </div>
+</div>
+<script>
+  function checkPassword() {
+    const pw = document.getElementById('password').value;
+    if (pw) {
+      document.getElementById('pwlayer').style.display = 'none';
+    } else {
+      alert('パスワードを入力してください');
+    }
+  }
+  document.getElementById('password').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+</script>
+
+<!-- スライド1 -->
+<div class="slide">
+  <h1>退勤・残業ルール</h1>
+  <div class="spacer"></div>
+</div>
+
+<!-- スライド2 -->
+<div class="slide">
+  <h2>ルール策定の背景</h2>
+  <ul>
+    <li>誰かの仕事が終わっていないときに「残して自分だけ帰るの悪いな」で残るのは<strong>誰もハッピーじゃない</strong></li>
+    <li>無駄な居残りを減らし、効率的な業務環境を実現</li>
+    <li>残業代の公平な運用により、透明性の高い職場を構築</li>
+  </ul>
+  <div class="spacer"></div>
+</div>
+
+<!-- スライド3 -->
+<div class="slide">
+  <h2>基本理解：みなし残業代について</h2>
+  <div class="note-box">
+    <strong>重要：</strong>みなし残業代は、<span class="highlight">みなし残業代を設定した契約の従業員、全員に支給</span>されます<br><br>
+    問題となるのは「みなし残業時間を超えた分」の扱いです
+  </div>
+  <div class="spacer"></div>
+</div>
+
+<!-- スライド4 -->
+<div class="slide">
+  <h2>みなし残業時間超過分の扱い</h2>
+  <table>
+    <tr>
+      <th style="width: 30%;">区分</th>
+      <th style="width: 40%;">みなし残業時間超過分</th>
+      <th style="width: 30%;">残業代</th>
+    </tr>
+    <tr>
+      <td><strong>来院数・検査数集計当番</strong><br>
+      <span class="highlight">デフォルトで残業代がつくのはこの人だけ</span></td>
+      <td>業務が終わるまで残業可<br>許可不要</td>
+      <td style="font-weight:bold; color: #2F855A;">超過分も全額支給</td>
+    </tr>
+    <tr>
+      <td><strong>当番以外の医療事務</strong></td>
+      <td>許可制<br>申請→許可で残業可</td>
+      <td>許可分のみ支給<br><span style="color: #C53030;">無断は支給なし</span></td>
+    </tr>
+  </table>
+  <div class="spacer"></div>
+</div>
+
+<!-- スライド5 -->
+<div class="slide">
+  <h2>具体的なケース</h2>
+  <table>
+    <tr>
+      <th style="width: 50%;">状況</th>
+      <th style="width: 25%;">みなし残業代</th>
+      <th style="width: 25%;">超過分残業代</th>
+    </tr>
+    <tr>
+      <td>集計当番がみなし残業時間を30分超過</td>
+      <td style="color: #2F855A; font-weight: bold;">支給</td>
+      <td style="color: #2F855A; font-weight: bold;">30分分も支給</td>
+    </tr>
+    <tr>
+      <td>当番以外の医療事務が許可を得て30分超過</td>
+      <td style="color: #2F855A; font-weight: bold;">支給</td>
+      <td style="color: #2F855A; font-weight: bold;">30分分も支給</td>
+    </tr>
+    <tr>
+      <td>当番以外の医療事務が許可なく30分超過</td>
+      <td style="color: #2F855A; font-weight: bold;">支給</td>
+      <td style="color: #C53030; font-weight: bold;">30分分は支給なし</td>
+    </tr>
+  </table>
+  <div class="spacer"></div>
+</div>
+
+<!-- スライド6 -->
+<div class="slide">
+  <h2>残業許可の取り方</h2>
+  <ol>
+    <li><strong>事前申請</strong>：残業申請書を提出し、承認を得る</li>
+    <li><strong>当日の急な業務</strong>：必ず院長に口頭で許可を得る</li>
+    <li><strong>申請書</strong>：口頭許可後、翌日提出でもOK</li>
+  </ol>
+  <div class="note-box">
+    <strong>残業申請書サンプル</strong><br><br>
+    申請者名：○○○○<br>
+    日時：2025年7月○日 18:00～19:00（予定）<br>
+    理由：レセプト対応・患者データ整理など<br><br>
+    承認：□可　□否　　日付：＿＿＿＿　　署名：＿＿＿＿＿＿
+  </div>
+  <div class="spacer"></div>
+</div>
+
+<!-- スライド7 -->
+<div class="slide">
+  <h2>禁止事項</h2>
+  <ul>
+    <li>許可なく「なんとなく」残る行為</li>
+    <li>他の人の業務終了を「ただ待つ」だけの居残り</li>
+    <li>生産性のない待機時間での居残り</li>
+  </ul>
+  <div class="important-box">
+    これらの場合、みなし残業時間を超えた分の残業代は支給されません<br>
+    効率的な業務進行にご協力をお願いします
+  </div>
+  <div class="spacer"></div>
+</div>
+
+<!-- スライド8 -->
+<div class="slide">
+  <h2>法的上限（労働基準法）</h2>
+  <ul>
+    <li><strong>1か月：</strong>70時間以内</li>
+    <li><strong>1年：</strong>450時間以内</li>
+    <li><strong>月45時間超：</strong>年6か月以内</li>
+  </ul>
+  <div class="note-box">
+    これらの上限は法律で定められており、適切な労働環境維持のために必須です
+  </div>
+  <div class="spacer"></div>
+</div>
+
+<!-- スライド9 -->
+<div class="slide">
+  <h2>まとめ</h2>
+  <div class="important-box">
+    <ul>
+      <li>みなし残業代は契約者全員に支給</li>
+      <li>当番以外の超過分残業は許可制</li>
+      <li>業務が終わったら安心して帰ってOK</li>
+      <li>必要な時だけしっかり残る、メリハリのある働き方</li>
+    </ul>
+  </div>
+  <p style="text-align:center; margin-top:30px; font-size: 1.1em;">
+    <small>本日より新ルール運用開始　不明点は上司・院長まで</small>
+  </p>
+  <div class="spacer"></div>
+</div>
+
+</body>
+</html>
